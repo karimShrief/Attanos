@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  ArrowLeft,
   ArrowRight,
   CheckCircle2,
   Clipboard,
@@ -8,6 +9,7 @@ import {
   FileText,
   Heart,
   Lock,
+  LayoutDashboard,
   Plus,
   RefreshCw,
   Sparkles,
@@ -279,6 +281,11 @@ export function ProjectWorkspace({
       <div className="mx-auto grid max-w-[1500px] gap-5 lg:grid-cols-[300px_1fr]">
         <WorkspaceSidebar currentProject={project} projects={projects} />
         <main className="space-y-5">
+          <Link className="btn-secondary w-fit" href="/dashboard">
+            <ArrowLeft aria-hidden="true" size={18} />
+            Back to Dashboard
+          </Link>
+
           <section className="border-b border-brass/16 pb-5">
             <div className="flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
               <div>
@@ -403,10 +410,16 @@ function WorkspaceSidebar({
         </p>
       </div>
 
-      <Link className="btn-primary mb-5 w-full" href="/dashboard/new">
-        <Plus aria-hidden="true" size={17} />
-        Create new campaign
-      </Link>
+      <nav className="mb-5 space-y-2">
+        <Link className="btn-secondary w-full justify-start" href="/dashboard">
+          <LayoutDashboard aria-hidden="true" size={17} />
+          Dashboard
+        </Link>
+        <Link className="btn-primary w-full justify-start" href="/dashboard/new">
+          <Plus aria-hidden="true" size={17} />
+          Create new campaign
+        </Link>
+      </nav>
 
       <div>
         <p className="mb-3 text-sm font-semibold text-brass">Project list</p>
